@@ -2,6 +2,7 @@
 <html>
     <body>
         <div id="root"></div>
+        <div id="root2"></div> 
     </body>    
     <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
@@ -11,7 +12,11 @@
             "span", {id: "sexy-span", style: { color: "blue" } }, 
             "Hello I'm a span"
             );
+        const btn  = React.createElement(
+            "button", {id: "btn"}
+        );
         // show it to the user 
         ReactDOM.render(span, root); 
+        ReactDOM.render(btn, root2);
     </script>
  </html>
