@@ -11,7 +11,11 @@
             onMouseEnter: () => console.log("mouse enter")
         }, "Hello I'm a span" );
         const btn  = React.createElement("button", {
-            onClick: () => console.log("I'm clicked")
+            onClick: () => console.log("I'm clicked"),
+            style: 
+            {
+                backgroundColor: "skyblue",
+            }
         }, "Click me");
         const container = React.createElement("div", null, [h3, btn]);
         // show it to the user 
