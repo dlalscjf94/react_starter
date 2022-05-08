@@ -2,21 +2,20 @@
 <html>
     <body>
         <div id="root"></div>
-        <div id="root2"></div> 
     </body>    
     <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
     <script>
         const root = document.getElementById("root");
-        const span = React.createElement(
-            "span", {id: "sexy-span", style: { color: "blue" } }, 
-            "Hello I'm a span"
-            );
-        const btn  = React.createElement(
-            "button", {id: "btn"}
-        );
+        const h3 = React.createElement("h3", {
+            onMouseEnter: () => console.log("mouse enter")
+        }, "Hello I'm a span" );
+        const btn  = React.createElement("button", {
+            onClick: () => console.log("I'm clicked")
+        }, "Click me");
+        const container = React.createElement("div", null, [h3, btn]);
         // show it to the user 
-        ReactDOM.render(span, root); 
-        ReactDOM.render(btn, root2);
+        ReactDOM.render(container, root); 
     </script>
- </html>
+ </html> 
+
