@@ -9,20 +9,27 @@
     <script type="text/babel">
         const root = document.getElementById("root");
         /* jsx, babel */
-        const Title = (<h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+        const Title = () => (<h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
                         Hello I'm a Title 
                      </h3>
         );
-        const Button = (<button style={{
+        const Button = () => (<button style={{
             backgroundColor: "skyblue",
             }}
             onClick={() => console.log("I'm clicked")}>
             Click me
             </button>
         );
-        const container = React.createElement("div", null, [Title, Button]);
+
+        const Container = () => (
+            <div>
+                <Title /> 
+                <Button />
+            </div>
+        )
+        // const container = React.createElement("div", null, [Title, Button]);
         // show it to the user 
-        ReactDOM.render(container, root); 
+        ReactDOM.render(<Container />, root); 
         /*
         const h3 = React.createElement("h3", {
             onMouseEnter: () => console.log("mouse enter")
