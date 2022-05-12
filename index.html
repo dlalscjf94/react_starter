@@ -9,26 +9,23 @@
     
     <script type="text/babel">
         const root = document.getElementById("root");
-        let counter = 0;
-
-        function countUp() {
-            counter = counter + 1;
-            render();
+        function App() {
+            const [counter, setCounter] = React.useState(0);
+            const onClick = () => {
+                //counter = counter + 1; 
+                setCounter(counter + 1);
+            };
+            return (
+                <div>
+                    <h3>Total clicks: {counter}</h3>
+                    <button onClick={onClick}>Click me</button>
+                </div>
+            );
         }
-
-        function render(){
-            ReactDOM.render(<Container />, root);             
-        }
-        const Container = () => (
-            <div>
-                <h3>Total clicks: {counter}</h3>
-                <button onClick={countUp}>Click me</button>
-            </div>
-        );
         // const container = React.createElement("div", null, [Title, Button]);
         // show it to the user 
-        render();
-
+        ReactDOM.render(<App />, root);   
+        
 
         /* jsx, babel */
         // const Title = () => (<h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
