@@ -13,12 +13,15 @@
             const [counter, setCounter] = React.useState(0);
             const onClick = () => {
                 //counter = counter + 1; 
-                setCounter(counter + 1);
+                // setCounter(counter + 1);
+                setCounter((current) => current + 1);
             };
             return (
                 <div>
                     <h3>Total clicks: {counter}</h3>
                     <button onClick={onClick}>Click me</button>
+                    <input placeholder="Minutes" type="number"/>
+                    <input placeholder="Hours" type="number" />
                 </div>
             );
         }
