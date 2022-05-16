@@ -20,15 +20,22 @@
                 // setCounter(counter + 1);
                 setCounter((current) => current + 1);
             };
+            const reset = () => {
+                setMinutes(0);
+            }
+
             return (
                 <div>
-                    <h3>Total clicks: {counter}</h3>
-                    <button onClick={onClick}>Click me</button>
-                    <label htmlFor="minutes">Minutes</label> 
-                    <input value = {minutes} id="minutes" placeholder="Minutes" type="number" onChange={onChange}/>
-                    <h4> You want to convert {minutes}</h4>
-                    <label htmlFor="hours">Hours</label> 
-                    <input id="hours" placeholder="Hours" type="number" />
+                    <div>
+                        <h3>Total clicks: {counter}</h3>
+                        <button onClick={onClick}>Click me</button>
+                        <label htmlFor="minutes">Minutes</label> 
+                        <input value = {minutes} id="minutes" placeholder="Minutes" type="number" onChange={onChange}/>
+                        <h4> You want to convert {minutes}</h4>
+                        <label htmlFor="hours">Hours</label> 
+                        <input value = {Math.round(minutes/60)} id="hours" placeholder="Hours" type="number" onChange={onChange}/>
+                    </div>
+                    <button onClick={reset}>reset</button>
                 </div>
             );
         }
