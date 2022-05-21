@@ -78,27 +78,21 @@
         }
 
         function App() {
-            const [amount, setAmount] = React.useState();
-            const [counter, setCounter] = React.useState(0);
-            const [flipped, setFlipped] = React.useState(false);
-            const onChange = (event) => {
-                setAmount(event.target.value);
-            }
-            const onClick = () => {
-                //counter = counter + 1; 
-                // setCounter(counter + 1);
-                setCounter((current) => current + 1);
+            const [index, setIndex] = React.useState(0);
+            const onSelect = (event) => {
+                setIndex(event.target.value);
             };
-            const reset = () => setAmount(0);
-            
-            const onFlip = () => setFlipped((current) => !current); 
-            
 
             return (
                 <div>
                     <h1>Super Converter</h1>
-                    <MinutesToHours />
-                    <KmToMiles />
+                    <select value={index} onChange={onSelect}>
+                        <oprion value="xx">Select your units</oprion> 
+                        <option value="0">Minutes & Hours</option>
+                        <option value="1">KM & Miles</option>
+                    </select>
+                    {index === "0" ? <MinutesToHours/> : null}
+                    {index === "1" ? <KmToMiles/> : null}
                 </div>
             );
         }
