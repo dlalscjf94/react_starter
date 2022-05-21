@@ -9,7 +9,8 @@
     
     <script type="text/babel">
         const root = document.getElementById("root");
-        function App() {
+        
+        function MinutesToHours() {
             const [amount, setAmount] = React.useState();
             const [counter, setCounter] = React.useState(0);
             const [flipped, setFlipped] = React.useState(false);
@@ -34,11 +35,70 @@
                         <label htmlFor="minutes">Minutes</label> 
                         <input value = {flipped ? amount * 60 : amount} id="minutes" placeholder="Minutes" type="number" onChange={onChange} disabled={flipped}/>
                         <h4> You want to convert {amount}</h4>
-                        <label htmlFor="hours">Hours</label> 
+                        <label htmlFor="hours">Hours</label>   
                         <input value = {flipped ? amount : Math.round(amount/60)} id="hours" placeholder="Hours" type="number" onChange={onChange} disabled={!flipped}/>
                     </div>
                     <button onClick={reset}>reset</button>
                     <button onClick={onFlip}>flip</button>
+                </div>
+            );
+        }
+        function KmToMiles() {
+            const [amount, setAmount] = React.useState();
+            const [counter, setCounter] = React.useState(0);
+            const [flipped, setFlipped] = React.useState(false);
+            const onChange = (event) => {
+                setAmount(event.target.value);
+            }
+            const onClick = () => {
+                //counter = counter + 1; 
+                // setCounter(counter + 1);
+                setCounter((current) => current + 1);
+            };
+            const reset = () => setAmount(0);
+            
+            const onFlip = () => setFlipped((current) => !current); 
+            
+
+            return (
+                <div>
+                    <div>
+                        <h3>Total clicks: {counter}</h3>
+                        <button onClick={onClick}>Click me</button>
+                        <label htmlFor="minutes">Minutes</label> 
+                        <input value = {flipped ? amount * 60 : amount} id="minutes" placeholder="Minutes" type="number" onChange={onChange} disabled={flipped}/>
+                        <h4> You want to convert {amount}</h4>
+                        <label htmlFor="hours">Hours</label>   
+                        <input value = {flipped ? amount : Math.round(amount/60)} id="hours" placeholder="Hours" type="number" onChange={onChange} disabled={!flipped}/>
+                    </div>
+                    <button onClick={reset}>reset</button>
+                    <button onClick={onFlip}>flip</button>
+                </div>
+            );
+        }
+
+        function App() {
+            const [amount, setAmount] = React.useState();
+            const [counter, setCounter] = React.useState(0);
+            const [flipped, setFlipped] = React.useState(false);
+            const onChange = (event) => {
+                setAmount(event.target.value);
+            }
+            const onClick = () => {
+                //counter = counter + 1; 
+                // setCounter(counter + 1);
+                setCounter((current) => current + 1);
+            };
+            const reset = () => setAmount(0);
+            
+            const onFlip = () => setFlipped((current) => !current); 
+            
+
+            return (
+                <div>
+                    <h1>Super Converter</h1>
+                    <MinutesToHours />
+                    <KmToMiles />
                 </div>
             );
         }
