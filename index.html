@@ -8,6 +8,23 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
     <script type="text/babel">
+
+        function Btn ({ text, big }) {
+            return (
+                <button
+                    style={{
+                        backgroundColor: "tomato",
+                        color: "white",
+                        padding: "10px 20px",
+                        border: 0,
+                        borderRadius: 10,
+                        fontSize: big ? 18 : 16,
+                    }}
+                >
+                 {text}
+                </button>
+            );
+        }
         const root = document.getElementById("root");
         
         function MinutesToHours() {
@@ -93,6 +110,8 @@
                     </select>
                     {index === "0" ? <MinutesToHours/> : null}
                     {index === "1" ? <KmToMiles/> : null}
+                    <Btn text="Save Changes" big={true}/>
+                    <Btn text="Confirm" big={false} />
                 </div>
             );
         }
